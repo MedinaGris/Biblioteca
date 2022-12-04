@@ -1,0 +1,195 @@
+
+#top {
+    position: relative;
+background: rgb(49,44,133);
+background: linear-gradient(90deg, rgba(49,44,133,0.856162447889312) 0%, 
+    rgba(5,5,186,0.8925770137156425) 35%, rgba(8,11,187,0.805742279822085) 37%, 
+    rgba(94,205,227,0.8477590865447742) 100%);
+    color: gray;
+    padding: 5px;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+background: rgb(49,44,133);
+background: linear-gradient(90deg, rgba(49,44,133,0.856162447889312) 0%, 
+    rgba(5,5,186,0.8925770137156425) 35%, rgba(8,11,187,0.805742279822085) 37%, 
+    rgba(94,205,227,0.8477590865447742) 100%);
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #red;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #b9bbbe;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+    color: black;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+    color: #e0a800;
+    font-weight : bold;
+    text-decoration : underline;
+}
+
+
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'),
+      url(http://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff) format('woff');
+}
+
+
+/*neon effect*/
+titulo{
+  text-align:center;
+  font-size:7em;
+  margin:20px 0 20px 0;
+}
+
+al{
+  text-decoration:none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+titulo:nth-child(1) al{
+  color:black;
+  font-family:Monoton;
+}
+titulo:nth-child(1) al:hover{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+titulo:nth-child(2) al{
+  font-size:1.5em;
+  color:#228DFF;
+  font-family:Iceland;
+}
+titulo:nth-child(2) al:hover{
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+titulo a:hover{
+color:#ffffff;
+}
+
+
+
+/*glow for webkit-ket-frames*/
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+
+
+/*glow for mozilla-keyframes*/
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+
+
+/*glow*/
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+

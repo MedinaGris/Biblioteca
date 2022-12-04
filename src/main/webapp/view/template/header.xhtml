@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition>
+
+            <div class="card">                      
+                <h:form>
+                    <p:growl id="messages"/>
+                    <p:menuButton value="Home" buttonStyleClass="ui-button-outlined" buttonStyle="border-radius: 0 1rem">
+                       
+                        <p:menuitem value="Inicio" icon="pi pi-fw pi-home" url="#{request.contextPath}/faces/view/content/home.xhtml"/> 
+                    
+
+                    </p:menuButton>
+                   
+                    <p:menuButton value="Unsis" buttonStyleClass="ui-button-outlined" buttonStyle="border-radius: 0 1rem">
+                        <p:divider/>
+                  
+                        <p:menuitem value="Prestamos" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/prestamos_unsis.xhtml"/>
+                        <p:menuitem value="Alumnos" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/alumnos_unsis.xhtml"/>
+                        <p:menuitem value="Libros catalogo" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/catalogos_unsis.xhtml"/>
+                        <p:menuitem value="Libros ejemplares" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/ejemplares_unsis.xhtml"/>
+
+                    </p:menuButton>
+                    <p:menuButton value="Umar" buttonStyleClass="ui-button-outlined" buttonStyle="border-radius: 0 1rem">
+                        <p:divider/>
+                    
+                        <p:menuitem value="Prestamos" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/prestamos_umar.xhtml"/>
+                        <p:menuitem value="Alumnos" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/alumnos_umar.xhtml"/>
+                        <p:menuitem value="Libros catalogo" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/catalogos_umar.xhtml"/>
+                        <p:menuitem value="Libros ejemplares" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/ejemplares_umar.xhtml"/>
+
+                    </p:menuButton>
+                    <p:menuButton value="Utm" buttonStyleClass="ui-button-outlined" buttonStyle="border-radius: 0 1rem">
+                        <p:divider/>
+                       
+                        <p:menuitem value="Prestamos" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/prestamos_utm.xhtml"/>
+                        <p:menuitem value="Alumnos" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/alumnos_utm.xhtml"/>
+                        <p:menuitem value="Libros catalogo" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/catalogos_utm.xhtml"/>   
+                        <p:menuitem value="Libros ejemplares" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/ejemplares_utm.xhtml"/>
+
+                    </p:menuButton>
+                      <p:menuButton value="Generales" buttonStyleClass="ui-button-outlined" buttonStyle="border-radius: 0 1rem">
+                        <p:divider/>
+                    
+                        <p:menuitem value="Tabla general" icon="pi pi-external-link" url="#{request.contextPath}/faces/view/content/prestamos_utm.xhtml"/>
+                        
+                    </p:menuButton>
+                </h:form>
+            </div>           
+        </ui:composition>
+    </body>
+</html>
