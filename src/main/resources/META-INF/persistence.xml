@@ -3,6 +3,7 @@
   <persistence-unit name="com.mycompany_Biblioteca_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>biblioteca.entity.Alumnos</class>
+    <class>biblioteca.entity.Prestamos</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/biblioteca_unsis"/>

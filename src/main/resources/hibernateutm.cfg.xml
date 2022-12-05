@@ -52,6 +52,8 @@ Contributor(s):
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="biblioteca.entity.LibrosCatalogo"/>
     <mapping class="biblioteca.entity.LibrosEjemplares"/>
+    <mapping class="biblioteca.entity.Prestamos"/>
+    <mapping class="biblioteca.entity.Alumnos"/>
  
   </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,7 @@
 
 package biblioteca.model;
 
+import biblioteca.entity.Alumnos;
 import biblioteca.entity.LibrosCatalogo;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -13,24 +14,28 @@ import org.hibernate.cfg.Configuration;
  * @author medina Gris
  */
 public class LibrosCatalogoImpl implements ILibrosCatalogoModel{
-     private SessionFactory sf;
-    private Session session;
+      private SessionFactory sfunsis = null;
+    private Session session_unsis = null;
+
     @Override
     public List<LibrosCatalogo> obtenerRegistros() {
-         List <LibrosCatalogo> listaLibros=null;
-       try {
-            sf = new Configuration().configure().buildSessionFactory();
-            session = sf.openSession();
+        List<LibrosCatalogo> listaLibrosCatalogo = null;
+        try {
 
-           listaLibros =session.createCriteria(LibrosCatalogo.class).list();
-            
-            session.close();
-            sf.close();
+            Configuration unsisCfg = new Configuration();
+            unsisCfg.configure("hibernateumar.cfg.xml");
+            sfunsis = unsisCfg.buildSessionFactory();
+            session_unsis = sfunsis.openSession();
+
+            listaLibrosCatalogo = session_unsis.createCriteria(LibrosCatalogo.class).list();
+
+            session_unsis.close();
+            sfunsis.close();
 
         } catch (HibernateException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        return listaLibros;
+        return listaLibrosCatalogo;
     }
     
 

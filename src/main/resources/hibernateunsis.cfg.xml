@@ -43,7 +43,7 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://192.168.0.109:5432/biblioteca_unsis</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://192.168.0.109:5432/bibliotecaUnsis</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">medina</property>
     <property name="hibernate.connection.pool_size">1</property>
@@ -52,6 +52,8 @@ Contributor(s):
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="biblioteca.entity.LibrosCatalogo"/>
     <mapping class="biblioteca.entity.LibrosEjemplares"/>
-    <mapping resource="/employee.hbm.xml"/>
+    <mapping class="biblioteca.entity.Prestamos"/>
+    <mapping class="biblioteca.entity.Alumnos"/>
+    
   </session-factory>
 </hibernate-configuration>
