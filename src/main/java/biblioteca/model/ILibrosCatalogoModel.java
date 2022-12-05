@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface ILibrosCatalogoModel {
    
-    public List<LibrosCatalogo> obtenerRegistros();
+    public List<LibrosCatalogo> obtenerRegistros(int id);
 }

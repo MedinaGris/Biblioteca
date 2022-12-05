@@ -13,24 +13,28 @@ import org.hibernate.cfg.Configuration;
  */
 public class AlumnosImpl implements IAlumnosModel {
 
-    private SessionFactory sfunsis = null;
-    private Session session_unsis = null;
+    private SessionFactory sf = null;
+    private Session session_bd = null;
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
+    public List<Alumnos> obtenerRegistros(int id) {
         List<Alumnos> listaAlumnos = null;
         try {
+            Configuration bdCfg = new Configuration();
 
-            Configuration unsisCfg = new Configuration();
-            unsisCfg.configure("\\src\\main\\resources\\hibernate_umar.cfg.xml");
-            sfunsis = unsisCfg.buildSessionFactory();
-            session_unsis = sfunsis.openSession();
+            switch(id){
+                case 1: bdCfg.configure("hibernate.cfg.xml");
+                        break;
+                case 2: bdCfg.configure("hibernateumar.cfg.xml");
+                        break;
+                case 3: bdCfg.configure("hibernateutm.cfg.xml");
 
-            listaAlumnos = session_unsis.createCriteria(Alumnos.class).list();
-
-            session_unsis.close();
-            sfunsis.close();
-
+            }
+            sf = bdCfg.buildSessionFactory();
+            session_bd = sf.openSession();
+            listaAlumnos = session_bd.createCriteria(Alumnos.class).list();
+            session_bd.close();
+            sf.close();
         } catch (HibernateException e) {
             System.out.println("Error: " + e.getMessage());
         }

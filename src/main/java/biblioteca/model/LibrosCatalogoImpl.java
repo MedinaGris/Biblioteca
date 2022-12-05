@@ -13,18 +13,28 @@ import org.hibernate.cfg.Configuration;
  * @author medina Gris
  */
 public class LibrosCatalogoImpl implements ILibrosCatalogoModel{
-     private SessionFactory sf;
-    private Session session;
+    private SessionFactory sf = null;
+    private Session session_bd = null;
     @Override
-    public List<LibrosCatalogo> obtenerRegistros() {
+    public List<LibrosCatalogo> obtenerRegistros(int id) {
          List <LibrosCatalogo> listaLibros=null;
        try {
-            sf = new Configuration().configure().buildSessionFactory();
-            session = sf.openSession();
+            Configuration bdCfg = new Configuration();
 
-           listaLibros =session.createCriteria(LibrosCatalogo.class).list();
+            switch(id){
+                case 1: bdCfg.configure("hibernate.cfg.xml");
+                        break;
+                case 2: bdCfg.configure("hibernateumar.cfg.xml");
+                        break;
+                case 3: bdCfg.configure("hibernateutm.cfg.xml");
+
+            }
+            sf = bdCfg.buildSessionFactory();
+            session_bd = sf.openSession();
+
+           listaLibros =session_bd.createCriteria(LibrosCatalogo.class).list();
             
-            session.close();
+            session_bd.close();
             sf.close();
 
         } catch (HibernateException e) {

@@ -17,29 +17,36 @@ import org.hibernate.cfg.Configuration;
  */
 public class LibrosEjemplaresImpl implements ILibrosEjemplaresModel {
 
-    private SessionFactory sfunsis = null;
-    private Session session_unsis = null;
+    private SessionFactory sf = null;
+    private Session session_bd = null;
 
 
     @Override
-    public List<LibrosEjemplares> obtenerRegistros() {
+    public List<LibrosEjemplares> obtenerRegistros(int id) {
         List<LibrosEjemplares> listaEjemplares = null;
         try {
-           Configuration unsisCfg = new Configuration();
-            unsisCfg.configure("hibernateumar.cfg.xml");
-            sfunsis = unsisCfg.buildSessionFactory();
-            session_unsis = sfunsis.openSession();
+     Configuration bdCfg = new Configuration();
 
-            
-            listaEjemplares = session_unsis.createCriteria(LibrosEjemplares.class).list();
+            switch(id){
+                case 1: bdCfg.configure("hibernate.cfg.xml");
+                        break;
+                case 2: bdCfg.configure("hibernateumar.cfg.xml");
+                        break;
+                case 3: bdCfg.configure("hibernateutm.cfg.xml");
 
-            session_unsis.close();
-            sfunsis.close();
+            }
+            sf = bdCfg.buildSessionFactory();
+            session_bd = sf.openSession();
+            listaEjemplares = session_bd.createCriteria(LibrosEjemplares.class).list();
+
+         
+            session_bd.close();
+            sf.close();
 
         } catch (HibernateException e) {
             System.out.println("Error: " + e.getMessage());
-        }catch (Exception e){
-            System.out.print("Err:"+e);
+            session_bd.close();
+            sf.close();
         }
         return listaEjemplares;
     }

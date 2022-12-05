@@ -9,5 +9,5 @@ import java.util.List;
  * @author medina Gris
  */
 public interface ILibrosCatalogoService {
-    public List<LibrosCatalogo> obtenerRegistros();
+    public List<LibrosCatalogo> obtenerRegistros(int id);
 }

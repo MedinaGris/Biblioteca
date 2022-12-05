@@ -4,6 +4,10 @@
  */
 package biblioteca.controller;
 
+/**
+ *
+ * @author Logan
+ */
 import biblioteca.entity.Alumnos;
 import biblioteca.service.AlumnosServiceImpl;
 import biblioteca.service.IAlumnosService;
@@ -12,14 +16,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-/**
- *
- * @author medina Gris
- */
+
 @RequestScoped
-@ManagedBean(name = "Alumnos")
-public class AlumnosController {
-    
+@ManagedBean(name = "General")
+public class GeneralController {
     private IAlumnosService service;
     private Alumnos AlumnoUnsis;
     private List<Alumnos> ListaAlumnosUnsis;
@@ -33,14 +33,10 @@ public class AlumnosController {
     public void init() {
         service = new AlumnosServiceImpl();
         AlumnoUnsis = new Alumnos();
-        AlumnoUmar = new Alumnos();
-        AlumnoUtm = new Alumnos();
-        
         ListaAlumnosUnsis = service.obtenerRegistros(1);
-        ListaAlumnosUmar = service.obtenerRegistros(2);
-        ListaAlumnosUtm = service.obtenerRegistros(3);
     }
-       
+    
+   
     public Alumnos getAlumno() {
         return AlumnoUnsis;
     }
@@ -64,6 +60,10 @@ public class AlumnosController {
     public List<Alumnos> getListaRegistrosUtm() {
         return ListaAlumnosUtm;
     }
-    
+
     
 }
+
+
+   
+    

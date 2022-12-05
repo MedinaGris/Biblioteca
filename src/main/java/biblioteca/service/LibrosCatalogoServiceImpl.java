@@ -14,9 +14,8 @@ public class LibrosCatalogoServiceImpl implements ILibrosCatalogoService {
     ILibrosCatalogoModel model = new LibrosCatalogoImpl();
 
     @Override
-    public List<LibrosCatalogo> obtenerRegistros() {
-        System.out.println("Obteniendo registros libro cat");
-        return model.obtenerRegistros();
+    public List<LibrosCatalogo> obtenerRegistros(int id) {
+        return model.obtenerRegistros(id);
     }
 
 }

@@ -20,8 +20,8 @@ public class LibrosEjemplaresServiceImpl implements ILibrosEjemplaresService {
     ILibrosEjemplaresModel model = new LibrosEjemplaresImpl();
 
     @Override
-    public List<LibrosEjemplares> obtenerRegistros() {
-        return model.obtenerRegistros();
+    public List<LibrosEjemplares> obtenerRegistros(int id) {
+        return model.obtenerRegistros(id);
     }
 
 }

@@ -12,5 +12,5 @@ import java.util.List;
  * @author medina Gris
  */
 public interface IAlumnosModel {
-     public List<Alumnos> obtenerRegistros();
+     public List<Alumnos> obtenerRegistros(int id);
 }

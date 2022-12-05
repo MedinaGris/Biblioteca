@@ -18,8 +18,8 @@ public class AlumnosServiceImpl implements IAlumnosService{
      IAlumnosModel model = new AlumnosImpl();
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
-    return model.obtenerRegistros();
+    public List<Alumnos> obtenerRegistros(int id) {
+    return model.obtenerRegistros(id);
     }
     
 }
