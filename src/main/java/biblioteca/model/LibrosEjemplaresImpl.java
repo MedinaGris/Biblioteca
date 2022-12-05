@@ -28,18 +28,16 @@ public class LibrosEjemplaresImpl implements ILibrosEjemplaresModel {
      Configuration bdCfg = new Configuration();
 
             switch(id){
-                case 1: bdCfg.configure("hibernate.cfg.xml");
+                case 1: bdCfg.configure("hibernateunsis.cfg.xml");
                         break;
                 case 2: bdCfg.configure("hibernateumar.cfg.xml");
                         break;
                 case 3: bdCfg.configure("hibernateutm.cfg.xml");
-
+                        break;
             }
             sf = bdCfg.buildSessionFactory();
             session_bd = sf.openSession();
             listaEjemplares = session_bd.createCriteria(LibrosEjemplares.class).list();
-
-         
             session_bd.close();
             sf.close();
 

@@ -16,8 +16,8 @@ import java.util.List;
 public class PrestamosServiceImpl implements IPrestamosService{
 IPrestamosModel model= new PrestamosImpl();
     @Override
-    public List<Prestamos> obtenerRegistros() {
+    public List<Prestamos> obtenerRegistros(int id) {
         System.out.println("Obteniendo registros libro prestamos");
-        return model.obtenerRegistros();
+        return model.obtenerRegistros(id);
     }
 }

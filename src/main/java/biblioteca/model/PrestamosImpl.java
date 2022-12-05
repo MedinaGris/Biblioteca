@@ -17,23 +17,32 @@ import org.hibernate.cfg.Configuration;
  */
 public class PrestamosImpl implements IPrestamosModel {
 
-    private SessionFactory sfunsis = null;
-    private Session session_unsis = null;
+    private SessionFactory sf = null;
+    private Session session_bd = null;
+
 
     @Override
-    public List<Prestamos> obtenerRegistros() {
+    public List<Prestamos> obtenerRegistros(int id) {
         List<Prestamos> listaPrestamos = null;
         try {
 
-            Configuration unsisCfg = new Configuration();
-            unsisCfg.configure("hibernateumar.cfg.xml");
-            sfunsis = unsisCfg.buildSessionFactory();
-            session_unsis = sfunsis.openSession();
+         Configuration bdCfg = new Configuration();
 
-            listaPrestamos = session_unsis.createCriteria(Prestamos.class).list();
+            switch(id){
+                case 1: bdCfg.configure("hibernateunsis.cfg.xml");
+                        break;
+                case 2: bdCfg.configure("hibernateumar.cfg.xml");
+                        break;
+                case 3: bdCfg.configure("hibernateutm.cfg.xml");
+                        break;
+            }
+            sf = bdCfg.buildSessionFactory();
+            session_bd = sf.openSession();
+            listaPrestamos = session_bd.createCriteria(Prestamos.class).list();
+                      
 
-            session_unsis.close();
-            sfunsis.close();
+            session_bd.close();
+            sf.close();
 
         } catch (HibernateException e) {
             System.out.println("Error: " + e.getMessage());

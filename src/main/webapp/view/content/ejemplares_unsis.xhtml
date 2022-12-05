@@ -19,15 +19,22 @@
                                 </p:column>
 
                                 <p:column headerText="IdLibro">
-                                    <h:outputText value="#{registrob.idLibro}" />
+                                    <h:outputText value="#{registrob.idLibro.idLibro}" />
                                 </p:column>
 
                                 <p:column headerText="Condición física">
                                     <h:outputText value="#{registrob.condicionFisica}" />
                                 </p:column>
-                                
+
                                 <p:column headerText="Pertenece a">
                                     <h:outputText value="#{registrob.perteneceA}" />
+                                </p:column>
+                                <p:column headerText="Prestamos:">
+<!--                                    <p:dataTable var="prestamo" value="#{registrob.prestamosCollection}">
+                                        <p:column headerText="matricula">
+                                            <h:outputText value="#{prestamo.matricula}" />
+                                        </p:column>
+                                    </p:dataTable>-->
                                 </p:column>
                             </p:dataTable>
                         </p:fieldset>

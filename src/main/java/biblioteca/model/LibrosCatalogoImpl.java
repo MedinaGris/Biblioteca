@@ -23,11 +23,12 @@ public class LibrosCatalogoImpl implements ILibrosCatalogoModel{
             Configuration bdCfg = new Configuration();
 
             switch(id){
-                case 1: bdCfg.configure("hibernate.cfg.xml");
+                case 1: bdCfg.configure("hibernateunsis.cfg.xml");
                         break;
                 case 2: bdCfg.configure("hibernateumar.cfg.xml");
                         break;
                 case 3: bdCfg.configure("hibernateutm.cfg.xml");
+                        break;
 
             }
             sf = bdCfg.buildSessionFactory();

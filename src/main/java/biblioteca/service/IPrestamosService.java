@@ -10,5 +10,5 @@ import java.util.List;
  * @author medina Gris
  */
 public interface IPrestamosService {
-    public List<Prestamos> obtenerRegistros();
+    public List<Prestamos> obtenerRegistros(int id);
 }

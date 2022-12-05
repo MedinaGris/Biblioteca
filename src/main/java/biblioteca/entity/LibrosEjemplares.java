@@ -6,6 +6,7 @@ package biblioteca.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class LibrosEjemplares implements Serializable {
 
     @OneToMany(mappedBy = "idEjemplar")
-    private Collection<Prestamos> prestamosCollection;
+    private List<Prestamos> prestamosCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -120,11 +121,11 @@ public class LibrosEjemplares implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Prestamos> getPrestamosCollection() {
+    public List<Prestamos> getPrestamosCollection() {
         return prestamosCollection;
     }
 
-    public void setPrestamosCollection(Collection<Prestamos> prestamosCollection) {
+    public void setPrestamosCollection(List<Prestamos> prestamosCollection) {
         this.prestamosCollection = prestamosCollection;
     }
     

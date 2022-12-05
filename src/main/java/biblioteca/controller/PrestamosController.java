@@ -22,13 +22,21 @@ public class PrestamosController {
      private IPrestamosService service;
     private Prestamos prestamo;
     private List<Prestamos> ListaPrestamos;
+        private Prestamos prestamoUmar;
+    private List<Prestamos> ListaPrestamosUmar;
+        private Prestamos prestamoUtm;
+    private List<Prestamos> ListaPrestamosUtm;
 
   
     @PostConstruct
     public void init() {
         service = new PrestamosServiceImpl();
         prestamo = new Prestamos();
-        ListaPrestamos = service.obtenerRegistros();
+        ListaPrestamos = service.obtenerRegistros(1);
+        prestamoUmar = new Prestamos();
+        ListaPrestamosUmar = service.obtenerRegistros(2);
+        prestamoUtm = new Prestamos();
+        ListaPrestamosUtm = service.obtenerRegistros(3);
     }
     
    
@@ -36,8 +44,24 @@ public class PrestamosController {
         return prestamo;
     }
  
+    public Prestamos getLibroCatalogoUmar() {
+        return prestamoUmar;
+    }
+ 
+    public Prestamos getLibroCatalogoUtm() {
+        return prestamoUtm;
+    }
+ 
     public List<Prestamos> getListaRegistros() {
         return ListaPrestamos;
+    }
+    
+    public List<Prestamos> getListaRegistrosUmar() {
+        return ListaPrestamosUmar;
+    }
+    
+    public List<Prestamos> getListaRegistrosUtm() {
+        return ListaPrestamosUtm;
     }
 
 }

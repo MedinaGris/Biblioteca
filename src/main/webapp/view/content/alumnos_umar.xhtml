@@ -13,7 +13,7 @@
                     <p:growl id="msgs" showDetail="true"/>
                     <div class="card">
                         <p:fieldset legend="Alumnos"  toggleable="true">
-                            <p:dataTable var="registro" value="#{Alumnos.listaRegistros}">
+                            <p:dataTable var="registro" value="#{Alumnos.listaRegistrosUmar}">
                                 <p:column headerText="Nombre">
                                     <h:outputText value="#{registro.nombreCompleto}" />
                                 </p:column>

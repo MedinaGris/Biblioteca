@@ -13,7 +13,7 @@
                     <p:growl id="msgs" showDetail="true"/>
                     <div class="card">
                         <p:fieldset legend="Libros"  toggleable="true">
-                            <p:dataTable var="registro" value="#{LibroCatalogo.listaRegistros}">
+                            <p:dataTable var="registro" value="#{LibroCatalogo.listaRegistrosUtm}">
                                 <p:column headerText="idLibro">
                                     <h:outputText value="#{registro.idLibro}" />
                                 </p:column>

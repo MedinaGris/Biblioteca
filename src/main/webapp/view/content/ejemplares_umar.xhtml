@@ -13,13 +13,13 @@
                     <p:growl id="msgs" showDetail="true"/>
                     <div class="card">
                         <p:fieldset legend="Ejemplares Libros"  toggleable="true">
-                            <p:dataTable var="registrob" value="#{LibroEjemplar.listaRegistros}">
+                            <p:dataTable var="registrob" value="#{LibroEjemplar.listaRegistrosUmar}">
                                 <p:column headerText="idEjemplar">
                                     <h:outputText value="#{registrob.idEjemplar}" />
                                 </p:column>
 
                                 <p:column headerText="IdLibro">
-                                    <h:outputText value="#{registrob.idLibro}" />
+                                    <h:outputText value="#{registrob.idLibro.idLibro}" />
                                 </p:column>
 
                                 <p:column headerText="Condición física">
