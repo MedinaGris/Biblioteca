@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
@@ -12,44 +12,23 @@
                 <h:form id="form">
                     <p:growl id="msgs" showDetail="true"/>
                     <div class="card">
-                        <h5>Catalogos Unsis</h5>
-                         <p:dataTable id="idTable" var="registro" value="#{cliente.listaRegistros}" editable="true"
-                                     style="margin-bottom:20px" rows="10">
-                            <p:ajax event="rowEdit" listener="#{cliente.onRowEdit}" update=":form:msgs"/>
-                            <p:column headerText="idlibro">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.idcliente}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText id="modelInput" value="#{registro.idcliente}" style="width:100%"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
-                            <p:column headerText="Titulo">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.nombre}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
-                            <p:column headerText="Autor">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.edad}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText value="#{registro.edad}" style="width:100%" label="Name"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>                         
-                           
-                        </p:dataTable>
+                        <p:fieldset legend="Libros"  toggleable="true">
+                            <p:dataTable var="registro" value="#{LibroCatalogo.listaRegistros}">
+                                <p:column headerText="idLibro">
+                                    <h:outputText value="#{registro.idLibro}" />
+                                </p:column>
+
+                                <p:column headerText="Titulo">
+                                    <h:outputText value="#{registro.titulo}" />
+                                </p:column>
+
+                                <p:column headerText="Autor">
+                                    <h:outputText value="#{registro.autor}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:fieldset>
                     </div>
-                                                      
+
                 </h:form>
             </ui:define>
         </ui:composition>

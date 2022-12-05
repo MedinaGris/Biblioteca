@@ -4,7 +4,6 @@
  */
 package biblioteca.model;
 
-import biblioteca.entity.LibrosCatalogo;
 import biblioteca.entity.LibrosEjemplares;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -18,24 +17,31 @@ import org.hibernate.cfg.Configuration;
  */
 public class LibrosEjemplaresImpl implements ILibrosEjemplaresModel {
 
-    private SessionFactory sf;
-    private Session session;
+    private SessionFactory sfunsis = null;
+    private Session session_unsis = null;
+
 
     @Override
     public List<LibrosEjemplares> obtenerRegistros() {
         List<LibrosEjemplares> listaEjemplares = null;
         try {
-            sf = new Configuration().configure().buildSessionFactory();
-            session = sf.openSession();
+           Configuration unsisCfg = new Configuration();
+            unsisCfg.configure("hibernateumar.cfg.xml");
+            sfunsis = unsisCfg.buildSessionFactory();
+            session_unsis = sfunsis.openSession();
 
-            listaEjemplares = session.createCriteria(LibrosCatalogo.class).list();
+            
+            listaEjemplares = session_unsis.createCriteria(LibrosEjemplares.class).list();
 
-            session.close();
-            sf.close();
+            session_unsis.close();
+            sfunsis.close();
 
         } catch (HibernateException e) {
             System.out.println("Error: " + e.getMessage());
+        }catch (Exception e){
+            System.out.print("Err:"+e);
         }
         return listaEjemplares;
     }
+
 }

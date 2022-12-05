@@ -33,14 +33,5 @@ public class LibrosCatalogoImpl implements ILibrosCatalogoModel{
         return listaLibros;
     }
     
-    
-    
-    
-        public static void main(String[] args) {
-        ILibrosCatalogoModel modelo = new LibrosCatalogoImpl();
-        
-            System.out.println(modelo.obtenerRegistros());
-            System.out.println("jjjj");
-        
-    }
+
 }

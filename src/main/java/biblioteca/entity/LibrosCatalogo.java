@@ -1,11 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package biblioteca.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +31,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "LibrosCatalogo.findByTitulo", query = "SELECT l FROM LibrosCatalogo l WHERE l.titulo = :titulo"),
     @NamedQuery(name = "LibrosCatalogo.findByAutor", query = "SELECT l FROM LibrosCatalogo l WHERE l.autor = :autor")})
 public class LibrosCatalogo implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLibro")
+    private Collection<LibrosEjemplares> librosEjemplaresCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -98,6 +102,15 @@ public class LibrosCatalogo implements Serializable {
     @Override
     public String toString() {
         return "biblioteca.entity.LibrosCatalogo[ idLibro=" + idLibro + " ]";
+    }
+
+    @XmlTransient
+    public Collection<LibrosEjemplares> getLibrosEjemplaresCollection() {
+        return librosEjemplaresCollection;
+    }
+
+    public void setLibrosEjemplaresCollection(Collection<LibrosEjemplares> librosEjemplaresCollection) {
+        this.librosEjemplaresCollection = librosEjemplaresCollection;
     }
     
 }

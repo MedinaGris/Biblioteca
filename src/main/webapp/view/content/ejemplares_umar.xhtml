@@ -12,54 +12,27 @@
                 <h:form id="form">
                     <p:growl id="msgs" showDetail="true"/>
                     <div class="card">
-                        <h5>Ejemplares Umar</h5>
-                         <p:dataTable id="idTable" var="registro" value="#{cliente.listaRegistros}" editable="true"
-                                     style="margin-bottom:20px" rows="10">
-                            <p:ajax event="rowEdit" listener="#{cliente.onRowEdit}" update=":form:msgs"/>
-                            <p:column headerText="id ejemplar">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.idcliente}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText id="modelInput" value="#{registro.idcliente}" style="width:100%"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
-                            <p:column headerText="id libro">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.nombre}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
-                            <p:column headerText="Condición física">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.edad}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText value="#{registro.edad}" style="width:100%" label="Name"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>                         
-                            <p:column headerText="Pertenece a">
-                                <p:cellEditor>
-                                    <f:facet name="output">
-                                        <h:outputText value="#{registro.telefono}"/>
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <p:inputText value="#{registro.telefono}" style="width:100%" label="Name"/>
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>                         
-                            
-                        </p:dataTable>
+                        <p:fieldset legend="Ejemplares Libros"  toggleable="true">
+                            <p:dataTable var="registrob" value="#{LibroEjemplar.listaRegistros}">
+                                <p:column headerText="idEjemplar">
+                                    <h:outputText value="#{registrob.idEjemplar}" />
+                                </p:column>
+
+                                <p:column headerText="IdLibro">
+                                    <h:outputText value="#{registrob.idLibro}" />
+                                </p:column>
+
+                                <p:column headerText="Condición física">
+                                    <h:outputText value="#{registrob.condicionFisica}" />
+                                </p:column>
+                                
+                                <p:column headerText="Pertenece a">
+                                    <h:outputText value="#{registrob.perteneceA}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:fieldset>
                     </div>
-                                                     
+
                 </h:form>
             </ui:define>
         </ui:composition>
