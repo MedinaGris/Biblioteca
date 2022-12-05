@@ -1,6 +1,7 @@
 
 package biblioteca.model;
 
+import biblioteca.entity.Alumnos;
 import biblioteca.entity.LibrosCatalogo;
 import java.util.List;
 import org.hibernate.HibernateException;

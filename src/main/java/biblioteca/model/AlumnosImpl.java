@@ -28,7 +28,6 @@ public class AlumnosImpl implements IAlumnosModel {
                 case 2: bdCfg.configure("hibernateumar.cfg.xml");
                         break;
                 case 3: bdCfg.configure("hibernateutm.cfg.xml");
-
             }
             sf = bdCfg.buildSessionFactory();
             session_bd = sf.openSession();
