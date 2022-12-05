@@ -14,27 +14,43 @@
                     <div class="card">
                         <p:fieldset legend="Ejemplares Libros"  toggleable="true">
                             <p:dataTable var="registrob" value="#{LibroEjemplar.listaRegistros}">
-                                <p:column headerText="idEjemplar">
+                                <p:column headerText="idEjemplar" width="100">
                                     <h:outputText value="#{registrob.idEjemplar}" />
                                 </p:column>
 
-                                <p:column headerText="IdLibro">
+                                <p:column headerText="IdLibro" width="100">
                                     <h:outputText value="#{registrob.idLibro.idLibro}" />
                                 </p:column>
 
-                                <p:column headerText="Condición física">
+                                <p:column headerText="Condición física" width="100">
                                     <h:outputText value="#{registrob.condicionFisica}" />
                                 </p:column>
 
-                                <p:column headerText="Pertenece a">
+                                <p:column headerText="Pertenece a" width="100">
                                     <h:outputText value="#{registrob.perteneceA}" />
                                 </p:column>
-                                <p:column headerText="Prestamos:">
-<!--                                    <p:dataTable var="prestamo" value="#{registrob.prestamosCollection}">
-                                        <p:column headerText="matricula">
-                                            <h:outputText value="#{prestamo.matricula}" />
+                                <p:column headerText="Prestamos:" width="1000">
+                                    <p:dataTable var="prestamo" value="#{registrob.prestamosCollection}">
+                                        <p:column headerText="id prestamo">
+                                            <h:outputText value="#{prestamo.idPrestamo}" />
                                         </p:column>
-                                    </p:dataTable>-->
+                                        <p:column headerText="matricula">
+                                            <h:outputText value="#{prestamo.matricula.matricula}" />
+                                        </p:column>
+                                        <p:column headerText="Fecha prestamo">
+                                    <h:outputText value="#{prestamo.fechaPrestamo}" />
+                                </p:column>
+                                <p:column headerText="Fecha devolución asignada">
+                                    <h:outputText value="#{prestamo.fechaDevolucionAsignada}" />
+                                </p:column>
+                                 <p:column headerText="Fecha devolución real">
+                                     <h:outputText value="#{prestamo.fechaDevolucionReal}" />
+                                </p:column>
+                                      <p:column headerText="diferencia">
+                                     <h:outputText value="#{prestamo.diferencia}" />
+                                </p:column>  
+                                        
+                                    </p:dataTable>
                                 </p:column>
                             </p:dataTable>
                         </p:fieldset>

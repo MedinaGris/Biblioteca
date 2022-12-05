@@ -8,8 +8,10 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -36,7 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "LibrosEjemplares.findByPerteneceA", query = "SELECT l FROM LibrosEjemplares l WHERE l.perteneceA = :perteneceA")})
 public class LibrosEjemplares implements Serializable {
 
-    @OneToMany(mappedBy = "idEjemplar")
+    //@OneToMany(mappedBy = "idEjemplar")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idEjemplar", cascade = CascadeType.REMOVE)
     private List<Prestamos> prestamosCollection;
 
     private static final long serialVersionUID = 1L;

@@ -37,7 +37,10 @@ public class LibrosEjemplaresImpl implements ILibrosEjemplaresModel {
             }
             sf = bdCfg.buildSessionFactory();
             session_bd = sf.openSession();
-            listaEjemplares = session_bd.createCriteria(LibrosEjemplares.class).list();
+             listaEjemplares= session_bd.createNamedQuery("LibrosEjemplares.findAll", LibrosEjemplares.class).list();
+
+            //listaEjemplares = session_bd.createCriteria(LibrosEjemplares.class).list();
+            System.out.println("Lista...."+listaEjemplares.size());
             session_bd.close();
             sf.close();
 

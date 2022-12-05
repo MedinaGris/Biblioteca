@@ -32,9 +32,9 @@ public class LibrosCatalogoController {
         LibroCat = new LibrosCatalogo();
         ListaLibrosCatalogo = service.obtenerRegistros(1);
         LibroCatUmar = new LibrosCatalogo();
-        ListaLibrosCatalogoUmar = service.obtenerRegistros(1);
+        ListaLibrosCatalogoUmar = service.obtenerRegistros(2);
         LibroCatUtm = new LibrosCatalogo();
-        ListaLibrosCatalogoUtm = service.obtenerRegistros(1);
+        ListaLibrosCatalogoUtm = service.obtenerRegistros(3);
         
     }
     

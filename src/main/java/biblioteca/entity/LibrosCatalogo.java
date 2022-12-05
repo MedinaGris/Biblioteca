@@ -3,10 +3,13 @@ package biblioteca.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +20,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -32,8 +37,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "LibrosCatalogo.findByAutor", query = "SELECT l FROM LibrosCatalogo l WHERE l.autor = :autor")})
 public class LibrosCatalogo implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLibro")
-    private Collection<LibrosEjemplares> librosEjemplaresCollection;
+  // @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLibro")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idLibro", cascade = CascadeType.ALL)
+   // @LazyCollection(LazyCollectionOption.FALSE)
+    private Set<LibrosEjemplares> librosEjemplaresCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -105,11 +112,11 @@ public class LibrosCatalogo implements Serializable {
     }
 
     @XmlTransient
-    public Collection<LibrosEjemplares> getLibrosEjemplaresCollection() {
+    public Set<LibrosEjemplares> getLibrosEjemplaresCollection() {
         return librosEjemplaresCollection;
     }
 
-    public void setLibrosEjemplaresCollection(Collection<LibrosEjemplares> librosEjemplaresCollection) {
+    public void setLibrosEjemplaresCollection(Set<LibrosEjemplares> librosEjemplaresCollection) {
         this.librosEjemplaresCollection = librosEjemplaresCollection;
     }
     

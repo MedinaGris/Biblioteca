@@ -33,8 +33,9 @@ public class LibrosCatalogoImpl implements ILibrosCatalogoModel{
             }
             sf = bdCfg.buildSessionFactory();
             session_bd = sf.openSession();
+        listaLibros= session_bd.createNamedQuery("LibrosCatalogo.findAll", LibrosCatalogo.class).list();
 
-           listaLibros =session_bd.createCriteria(LibrosCatalogo.class).list();
+       //    listaLibros =session_bd.createCriteria(LibrosCatalogo.class).list();
             
             session_bd.close();
             sf.close();

@@ -6,6 +6,7 @@ package biblioteca.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -64,7 +65,7 @@ public class Prestamos implements Serializable {
     public Prestamos(Integer idPrestamo) {
         this.idPrestamo = idPrestamo;
     }
-
+    
     public Integer getIdPrestamo() {
         return idPrestamo;
     }
@@ -119,7 +120,17 @@ public class Prestamos implements Serializable {
         hash += (idPrestamo != null ? idPrestamo.hashCode() : 0);
         return hash;
     }
+    public long getDiferencia(){
+        
+        long diff = fechaDevolucionReal.getTime() - fechaDevolucionAsignada.getTime();
 
+        TimeUnit time = TimeUnit.DAYS; 
+        long diferencia = time.convert(diff, TimeUnit.MILLISECONDS);
+        if (diferencia>0)
+            return diferencia;
+        else
+            return 0;
+    }
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

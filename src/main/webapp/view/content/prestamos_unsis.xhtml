@@ -12,11 +12,11 @@
                     <p:growl id="msgs" showDetail="true"/>
                     <div class="card">
                         <p:fieldset legend="Prestamos"  toggleable="true">
-                            <p:dataTable var="registro" value="#{Prestamos.listaRegistros}">
-                                <p:column headerText="id Prestamo">
+                            <p:dataTable var="registro" value="#{Prestamos.listaRegistros}" >
+                                <p:column headerText="id Prestamo" >
                                     <h:outputText value="#{registro.idPrestamo}" />
                                 </p:column>
-                                <p:column headerText="id Ejemplar">
+                                <p:column headerText="id Ejemplar" >
                                     <h:outputText value="#{registro.idEjemplar.idLibro}" />
                                 </p:column>
                                 

@@ -35,6 +35,11 @@ public class LibrosEjemplaresController {
         ListaLibrosEjemplares = service.obtenerRegistros(1);
         ListaLibrosEjemplaresUmar = service.obtenerRegistros(2);
         ListaLibrosEjemplaresUtm = service.obtenerRegistros(3);
+        
+        System.out.println("ListaLibrosEjemplares"+ListaLibrosEjemplares.size());
+        System.out.println("ListaLibrosEjemplares"+ListaLibrosEjemplaresUmar.size());
+        System.out.println("ListaLibrosEjemplares"+ListaLibrosEjemplaresUtm.size());
+
 
     }
     
@@ -60,25 +65,7 @@ public class LibrosEjemplaresController {
     }
     
     
-    public static void main(String args []){
-    LibrosEjemplaresController c=new LibrosEjemplaresController();
-    ;
-    c.init();
-    System.out.println("unsis"+c.ListaLibrosEjemplares.size());
-    System.out.println("umar"+c.ListaLibrosEjemplaresUmar.size());
-    System.out.println("utm"+c.ListaLibrosEjemplaresUtm.size());
-    
-    List<LibrosEjemplares> all = new ArrayList<LibrosEjemplares>();
-    all.addAll(c.ListaLibrosEjemplares);
-    all.addAll(c.ListaLibrosEjemplaresUmar);
-    all.addAll(c.ListaLibrosEjemplaresUtm);
-    
-    System.out.println("all"+all.size());
 
-
-        
-
-    }
             
 
 }
