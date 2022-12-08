@@ -6,11 +6,13 @@ package biblioteca.controller;
 
 /**
  *
- * @author Logan
+ * @author medina
  */
-import biblioteca.entity.Alumnos;
-import biblioteca.service.AlumnosServiceImpl;
-import biblioteca.service.IAlumnosService;
+import biblioteca.entity.Tardados;
+import biblioteca.service.GeneralServiceImpl;
+import biblioteca.service.IGeneralService;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -20,47 +22,54 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 @ManagedBean(name = "General")
 public class GeneralController {
-    private IAlumnosService service;
-    private Alumnos AlumnoUnsis;
-    private List<Alumnos> ListaAlumnosUnsis;
-    private Alumnos AlumnoUmar;
-    private List<Alumnos> ListaAlumnosUmar;
-    private Alumnos AlumnoUtm;
-    private List<Alumnos> ListaAlumnosUtm;
+    private IGeneralService service;
+    private List<Tardados>listaMasTardados = new ArrayList();
+    private List<Tardados>listaMasTardadosUnsis;
+    private List<Tardados>listaMasTardadosUmar;
+    private List<Tardados>listaMasTardadosUtm;
+
+        
+    Tardados tardados;
 
   
     @PostConstruct
     public void init() {
-        service = new AlumnosServiceImpl();
-        AlumnoUnsis = new Alumnos();
-        ListaAlumnosUnsis = service.obtenerRegistros(1);
+        service = new GeneralServiceImpl();
+        tardados = new Tardados();
+        listaMasTardadosUnsis = service.obtenerRegistros(1);
+        listaMasTardadosUmar = service.obtenerRegistros(2);
+        listaMasTardadosUtm = service.obtenerRegistros(3);
+        listaMasTardados.addAll(listaMasTardadosUnsis);
+        listaMasTardados.addAll(listaMasTardadosUmar);
+        listaMasTardados.addAll(listaMasTardadosUtm);
+        
     }
     
    
-    public Alumnos getAlumno() {
-        return AlumnoUnsis;
+    public Tardados getAlumno() {
+        return tardados;
     }
-    
-    public Alumnos getAlumnoUmar() {
-        return AlumnoUmar;
-    }
-        
-    public Alumnos getAlumnoUtm() {
-        return AlumnoUtm;
-    }
+
+
  
-    public List<Alumnos> getListaRegistros() {
-        return ListaAlumnosUnsis;
+    public List<Tardados> getListaRegistros() {
+        Collections.sort(listaMasTardados);
+        List<Tardados> response =new ArrayList<Tardados>();
+        for(int i=0;i<5;i++){
+            response.add(listaMasTardados.get(i));
+        }
+        return response;
     }
 
-    public List<Alumnos> getListaRegistrosUmar() {
-        return ListaAlumnosUmar;
+    public static void main(String[] args) {
+        GeneralController g = new GeneralController();
+        System.out.println("iniciando----");
+        g.init();
+        for(Tardados t:g.getListaRegistros()){
+            System.out.println("datos"+t.getIdEjemplar()+" "+t.getDiferencia()+" "+t.getPertenece());
+        }
+        
     }
-    
-    public List<Alumnos> getListaRegistrosUtm() {
-        return ListaAlumnosUtm;
-    }
-
     
 }
 

@@ -54,5 +54,6 @@ Contributor(s):
     <mapping class="biblioteca.entity.LibrosEjemplares"/>
     <mapping class="biblioteca.entity.Prestamos"/>
     <mapping class="biblioteca.entity.Alumnos"/>
+
   </session-factory>
 </hibernate-configuration>

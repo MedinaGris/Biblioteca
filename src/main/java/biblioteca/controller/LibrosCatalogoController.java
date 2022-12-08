@@ -1,8 +1,11 @@
 package biblioteca.controller;
 
 import biblioteca.entity.LibrosCatalogo;
+import biblioteca.entity.LibrosEjemplares;
 import biblioteca.service.ILibrosCatalogoService;
 import biblioteca.service.LibrosCatalogoServiceImpl;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -38,6 +41,7 @@ public class LibrosCatalogoController {
         
     }
     
+  
    
     public LibrosCatalogo getLibroCatalogo() {
         return LibroCat;
