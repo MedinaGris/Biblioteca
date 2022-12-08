@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-    
+
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
@@ -34,22 +34,20 @@
                                         <p:column headerText="id prestamo">
                                             <h:outputText value="#{prestamo.idPrestamo}" />
                                         </p:column>
-                                        <p:column headerText="matricula">
-                                            <h:outputText value="#{prestamo.matricula.matricula}" />
-                                        </p:column>
+
                                         <p:column headerText="Fecha prestamo">
-                                    <h:outputText value="#{prestamo.fechaPrestamo}" />
-                                </p:column>
-                                <p:column headerText="Fecha devolución asignada">
-                                    <h:outputText value="#{prestamo.fechaDevolucionAsignada}" />
-                                </p:column>
-                                 <p:column headerText="Fecha devolución real">
-                                     <h:outputText value="#{prestamo.fechaDevolucionReal}" />
-                                </p:column>
-                                      <p:column headerText="diferencia">
-                                     <h:outputText value="#{prestamo.diferencia}" />
-                                </p:column>  
-                                        
+                                            <h:outputText value="#{prestamo.fechaPrestamo}" />
+                                        </p:column>
+                                        <p:column headerText="Fecha devolución asignada">
+                                            <h:outputText value="#{prestamo.fechaDevolucionAsignada}" />
+                                        </p:column>
+                                        <p:column headerText="Fecha devolución real">
+                                            <h:outputText value="#{prestamo.fechaDevolucionReal}" />
+                                        </p:column>
+                                        <p:column headerText="diferencia">
+                                            <h:outputText value="#{prestamo.diferencia}" />
+                                        </p:column>  
+
                                     </p:dataTable>
                                 </p:column>
                             </p:dataTable>
